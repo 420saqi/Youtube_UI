@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube/search_section.dart';
 
 import 'appbar_icons/cast_alert_dialog.dart';
 
@@ -14,7 +15,10 @@ class NotificationSection extends StatelessWidget {
           const CastIconOnAppBar(),
 
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => SearchSection(),));
+            },
             icon: const Icon(Icons.search,),
           ),
 
@@ -35,7 +39,7 @@ class NotificationSection extends StatelessWidget {
             color: Colors.grey.shade400,
           size: 100,
           ),
-const SizedBox(height: 30,),
+            const SizedBox(height: 30,),
           const Center(
             child: Text('Your notifications live here',style: TextStyle(
               fontSize: 18,
