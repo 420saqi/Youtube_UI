@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:youtube/appbar_icons/cast_alert_dialog.dart';
+import 'package:youtube/notifications.dart';
 
 PreferredSizeWidget? showTopAppBar(BuildContext context){
   return AppBar(
@@ -23,8 +24,12 @@ PreferredSizeWidget? showTopAppBar(BuildContext context){
     ),
     actions: [
       const CastIconOnAppBar(),
+
       IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(
+              builder: (context) => const NotificationSection(),));
+        },
         icon: const Icon(Icons.notifications_none,),
       ),
       IconButton(
