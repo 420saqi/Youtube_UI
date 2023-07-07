@@ -1,11 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:youtube/appbar_icons/cast_alert_dialog.dart';
-import 'package:youtube/notifications.dart';
-import 'package:youtube/search_section.dart';
+import 'package:youtube/appbar_icons/profile_section/model_bottom_sheet_for_profile.dart';
+import 'package:youtube/appbar_icons/notifications.dart';
+import 'package:youtube/appbar_icons/search_section.dart';
 
-PreferredSizeWidget? showTopAppBar(BuildContext context){
+PreferredSizeWidget? showTopAppBar(BuildContext context) {
   return AppBar(
+    backgroundColor: Colors.white,
     title: Row(
       children: [
         Image.asset(
@@ -15,43 +16,47 @@ PreferredSizeWidget? showTopAppBar(BuildContext context){
         const SizedBox(
           width: 5,
         ),
-        const Text(
+         Text(
           'YouTube',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.titleLarge
         ),
       ],
     ),
     actions: [
       const CastIconOnAppBar(),
 
+      // Notification Section
       IconButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(
-              builder: (context) => const NotificationSection(),));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const NotificationSection(),
+              ));
         },
-        icon: const Icon(Icons.notifications_none,),
-      ),
-
-      IconButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(
-            builder: (context) => SearchSection(),));
-        },
-        icon: const Icon(Icons.search,),
-      ),
-      TextButton(
-        onPressed: (){},
-        child: ClipOval(
-          child: Image.asset(
-            'assets/images/account_info.jpg',
-            width: 30,
-            height: 30,
-          ),
+        icon:  Icon(
+          Icons.notifications_none,
+          color: Theme.of(context).iconTheme.color,
         ),
       ),
+
+      // search section
+      IconButton(
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SearchSection(),
+              ));
+        },
+        icon:  Icon(
+          Icons.search,
+          color: Theme.of(context).iconTheme.color,
+        ),
+      ),
+
+      // profile section
+      const ProfileModelBottomSheet(),
     ],
   );
 }
-

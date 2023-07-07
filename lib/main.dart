@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:youtube/home_screen.dart';
+import 'package:youtube/splash_screen.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -12,10 +12,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        textTheme: const TextTheme(
+          titleMedium: TextStyle(
+            color: Colors.black
+          )
+        ),
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+        )
       ),
-      home:  const HomeScreen(),
+      home:  const SplashScreen(),
     );
   }
 }

@@ -12,7 +12,9 @@ class CastIconOnAppBar extends StatelessWidget {
       onPressed: () {
         _showCastDialog(context);
       },
-      icon: const Icon(Icons.cast,),
+      icon:  Icon(Icons.cast,
+      color: Theme.of(context).iconTheme.color,
+      ),
     );
   }
 }
@@ -20,14 +22,14 @@ class CastIconOnAppBar extends StatelessWidget {
 Future _showCastDialog (BuildContext context)
 {
   return showDialog(context: context, builder: (context) {
-    return  const AlertDialog(
+    return   AlertDialog(
 
-      title: Text('Connect to a device'),
+      title: const Text('Connect to a device'),
       content:SizedBox(
         height: 150,
         child: Column(
           children: [
-            Row(
+            const Row(
               children: [
                 SizedBox(
                     height:20,
@@ -39,21 +41,25 @@ Future _showCastDialog (BuildContext context)
                     ),
               ],
             ),
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
             Row(children: [
-              Icon(Icons.reset_tv_outlined),
-                  SizedBox(width: 30,),
-                  Text('Link with TV code',style: TextStyle(
+              Icon(Icons.reset_tv_outlined,
+              color: Theme.of(context).iconTheme.color,
+              ),
+                  const SizedBox(width: 30,),
+                  const Text('Link with TV code',style: TextStyle(
                     fontSize: 15.0,
                   ),
                   ),
             ],),
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
             Row(
               children: [
-                Icon(Icons.info_outline),
-                SizedBox(width: 30,),
-                Text('Learn more',style: TextStyle(
+                Icon(Icons.info_outline,
+                color: Theme.of(context).iconTheme.color,
+                ),
+                const SizedBox(width: 30,),
+                const Text('Learn more',style: TextStyle(
                   fontSize: 15.0,
                 ),
                 ),
